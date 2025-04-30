@@ -17,6 +17,17 @@ body {
   height: 335px;
 }
 
+.image-slider .current-slide {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #000000d1;
+  color: white;
+  z-index: 111;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .image-slider .inner-indicators {
   position: absolute;
   bottom: 0;
@@ -53,7 +64,7 @@ body {
 
 .image-slider .inner-images img {
   width: 100%;
-  max-height: 250px;
+  height: 250px;
   border-radius: 4px;
 }
 

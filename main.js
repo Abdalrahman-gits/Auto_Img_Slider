@@ -1,4 +1,5 @@
 // get Elements 
+let sliderCurrent = document.querySelector(".image-slider .current-slide");
 let sliderIndicators = Array.from(document.querySelectorAll(".image-slider .inner-indicators .indicator-item"));
 let sliderImages = Array.from(document.querySelectorAll(".image-slider .inner-images .image-item"));
 let prevBtn = document.querySelector(".image-slider .prev");
@@ -11,7 +12,7 @@ let imgIndex = 0;
 let autoSlideId;
 
 
-
+/**** Functions ****/
 
 // Find if active class found in html elements
 function ifActiveFound(sliderImages) {
@@ -31,8 +32,11 @@ function setImage(index) {
   removeActive(sliderImages);
   removeActive(sliderIndicators);
 
-  sliderImages[index].classList.add("active");
-  sliderIndicators[index].classList.add("active");
+  // For Comment Above the Image
+  sliderCurrent.textContent = `Slide ${+index + 1} Of ${sliderImages.length}`;
+
+  sliderImages[+index].classList.add("active");
+  sliderIndicators[+index].classList.add("active");
 }
 
 // Moves Index to the Next Page
@@ -86,8 +90,7 @@ function resumeAfterDelay() {
 
 // if No active class found => it Initiates.
 if(!ifActiveFound(sliderImages)){
-  sliderImages[0].classList.add("active");
-  sliderIndicators[0].classList.add("active");
+  setImage(imgIndex);
 }
 else {
   sliderIndicators.forEach((indicator) => {
